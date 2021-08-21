@@ -5,33 +5,31 @@ function getValue(){
 }
 
 function processValue(a,b){
-  let showNumber=[]
+  let generateNumber=[]
   for(let i=1;i<=100;i++){
     
-    showNumber.push(i)
+    let value=((i%a==0?'Fizz':'')+(i%b==0?'Buzz':'')||i)
+    generateNumber.push(value)
   }
-  displayValue(showNumber)
+  displayValue(generateNumber)
 
 }
 
-function displayValue(showNumber){
+function displayValue(generateNumber){
   let result=document.getElementById('tableResults')
   let tableNumbers=''
-  showNumber.map((num)=>{
-    if(num%5==0){
-      return(
-        tableNumbers+=`<td>${num}<td></tr>`
-      )
-    }else if(num%5==1||num==1){
-      return(
-        tableNumbers+=`<tr><td>${num}<td>`
-      )
-    }else{
-      return(
-        tableNumbers+=`<td>${num}<td>`
-      )
-    }
-  })
+  let hundred=generateNumber.length
+   for(let index=0;index<hundred;index+=5){
+     tableNumbers+=`
+      <tr>
+        <td class="${generateNumber[index]}">${generateNumber[index]}</td>
+        <td class="${generateNumber[index+1]}">${generateNumber[index+1]}</td>
+        <td class="${generateNumber[index+2]}">${generateNumber[index+2]}</td>
+        <td class="${generateNumber[index+3]}">${generateNumber[index+3]}</td>
+        <td class="${generateNumber[index+4]}">${generateNumber[index+4]}</td>
+      </tr>
+     `
+   }
   result.innerHTML=tableNumbers
 
 }

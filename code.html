@@ -58,22 +58,77 @@
 
     <main class="flex-shrink-0">
        <div class="container">
-           <h3 class="border-1 border-dark border-bottom py-3">code</h3>
+           <h3 class="border-1 border-dark border-bottom py-3 text-end">code of fizzbuzz</h3>
          <div class="row row-cols-1 row-cols-sm-2">
              <div class="col-sm-8">
                 <pre class="line-numbers">
                     <code class="language-javascript">
-                        alert('a')
+                        //STEP 1
+                        function getValue(){
+                            let fizz=document.getElementById('fizz').value
+                            let buzz=document.getElementById('buzz').value
+                            processValue(fizz,buzz)
+                          }
+
+                          //STEP 2
+                          function processValue(a,b){
+                            let generateNumber=[]
+                            for(let i=1;i<=100;i++){
+                              
+                              let value=((i%a==0?'Fizz':'')+(i%b==0?'Buzz':'')||i)
+                              generateNumber.push(value)
+                            }
+                            displayValue(generateNumber)
+                          }
+                          
+                          //STEP 3
+                          function displayValue(generateNumber){
+                            let result=document.getElementById('tableResults')
+                            let tableNumbers=''
+                            let hundred=generateNumber.length
+                             for(let index=0;index<=hundred;index+=5){
+                               tableNumbers+=`
+                               //html tags are disapeared
+                                <tr>
+                                  <td class="${generateNumber[index]}">${generateNumber[index]}</td>
+                                  <td class="${generateNumber[index+1]}">${generateNumber[index+1]}</td>
+                                  <td class="${generateNumber[index+2]}">${generateNumber[index+2]}</td>
+                                  <td class="${generateNumber[index+3]}">${generateNumber[index+3]}</td>
+                                  <td class="${generateNumber[index+4]}">${generateNumber[index+4]}</td>
+                                </tr>
+                               `
+                             }
+                            result.innerHTML=tableNumbers
+                          
+                          }
+                          
                     </code>
                 </pre>
              </div>
-             <div class="col-sm-4 order-first order-sm-last align-items-center d-flex">
-                    dfs
+             <div class="col-sm-4 order-first order-sm-last">
+                    <div class="row">
+                        <div class="col mt-sm-5 mb-sm-5">
+                            <h5>step 1</h5>
+                            <p>geting inputs from user</p>
+                        </div>
+                    </div>
+                    <div class="row mb-sm-5">
+                        <div class="col mt-sm-5 mb-sm-5">
+                            <h5>step 2</h5>
+                            <p>generating numbers from 1 t0 100 and using if statement to replace multiple numbers with <span class="Fizz">Fizz</span>,<span class="Buzz">Buzz</span> and <span class="FizzBuzz">FizzBuzz</span></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col mt-sm-5 mb-sm-5">
+                            <h5>step 3</h5>
+                            <p>displaying numbers from previous step in ui with the help of loops. we use +5step for loop variable in order to build out table with 5 column.</p>
+                        </div>
+                    </div>
              </div>
          </div>
        </div>
     </main>
-        <footer class="footer mt-auto py-3 sticky-footer">
+        <footer class="footer mt-auto py-3 sticky-footer codeFooter">
         <div class="container-fluid text-light">
           <div class="row d-flex align-items-center">
            
